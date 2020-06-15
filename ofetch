@@ -7,6 +7,13 @@ PKG="brew"
 e="echo"
 c0="\033[0m"    # Reset
 c1="\033[1;31m" # RED
+c2="\033[0;33m" # YELLOW
+c3="\033[0;31m" # Red
+c4="\033[1;31m" # RED
+c5="\033[1;31m" # RED
+c6="\033[1;31m" # RED
+c7="\033[1;31m" # RED
+
 
 OS=$(sw_vers | awk -F "\:\t" '{printf "%s ",$2}')
 CPU=$(sysctl -n machdep.cpu.brand_string) 
