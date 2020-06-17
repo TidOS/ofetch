@@ -51,6 +51,11 @@ TERM)
     echo $TERM
     ;;
     
+BREW)
+    #package count from brew
+    brew list | wc -l | awk {'print $1'}
+    ;;
+    
 *)
     echo DUMMY
     ;;
