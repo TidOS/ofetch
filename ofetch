@@ -4,8 +4,8 @@ from os import system
 import blessings
 from blessings import Terminal
 import tempfile
-
-info_path="./ofetch-get-info.sh"
+dir=os.path.dirname(os.path.realpath(__file__))
+info_path=dir + "/ofetch-get-info.sh"
 system('reset')
 
 #rainbow style
