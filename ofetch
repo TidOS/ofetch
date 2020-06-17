@@ -52,7 +52,7 @@ for i in infos:
     #print("about to do " + i + "on row " + str(row))
     system(info_path + " " + i + " >> " + tempfile.name)
     with term.location(XText,y=row):
-        print(term.bold_underline(i.rjust(5)) + ": " + term.green + readfile.readline().ljust(20) + term.normal)
+        print(term.bold_underline(i.rjust(5)) + ": " + term.green + readfile.readline() + term.normal)
     row = row + 1
 #pint(tempfile.name)
 #system("cat " + tempfile.name)
