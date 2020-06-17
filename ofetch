@@ -31,7 +31,7 @@ logo_lines=["                :++++.         ",
 "      \`:+oo+/:-..-:/+o+/-   "]
 term = Terminal()
 
-infos = ["MACOS", "MODEL", "CPU", "GPU", "THERM", "DISK", "SHELL", "TERM"]
+infos = ["MACOS", "MODEL", "CPU", "GPU", "THERM", "BREW", "DISK", "SHELL", "TERM"]
 
 tempfile = tempfile.NamedTemporaryFile(mode = 'w')
 readfile = open(tempfile.name)
