@@ -1,2 +1,51 @@
-#!/usr/bin/env/python3
+#!/usr/bin/env python3
 import curses
+import os
+from os import system
+import blessings
+from blessings import Terminal
+system('reset')
+
+#rainbow style
+logo_colors=[10,10,10,11,11,3,3,9,9,8,8,12,12,12,5]
+
+#gray
+#logo_colors=[7,7,7,7,7,7,7,7,7,7,7,7,7,7,7]
+
+
+logo_lines=["                :++++.         ",
+"               /+++/.          ",
+"       .:-::- .+/:-\`\`.::-    ",
+"    .:/++++++/::::/++++++/:\`  ",
+"  .:///////////////////////:\` ",
+"  ////////////////////////\`   ",
+" -+++++++++++++++++++++++\`    ",
+" /++++++++++++++++++++++/      ",
+" /sssssssssssssssssssssss.     ",
+" :ssssssssssssssssssssssss-    ",
+"  osssssssssssssssssssssssso/\\",
+"  \`syyyyyyyyyyyyyyyyyyyyyyyy+\\",
+"   \`ossssssssssssssssssssss/   ",
+"     :ooooooooooooooooooo+.    ",
+"      \`:+oo+/:-..-:/+o+/-   "]
+term = Terminal()
+#os.execvp('imgcat', ["1","./small.png"])
+
+logo_width=0
+line=0
+for i in logo_lines:
+#    print(str(line) + ": " + term.color(logo_colors[line]) + i + term.normal)
+    print(term.color(logo_colors[line]) + i + term.normal)
+    line = line + 1
+    if len(i) > logo_width:
+        logo_width=len(i)
+XText = logo_width + 3
+
+with term.location(XText,y=1):
+    print(term.bold('bold text'))
+with term.location(XText,y=2):
+    print(term.bold_red_on_bright_green('barf'))
+
+
+
+#os.execvp('imgcat', ["1","./small.png"])
