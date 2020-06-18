@@ -31,7 +31,14 @@ logo_lines=["                :++++.         ",
 "      \`:+oo+/:-..-:/+o+/-   "]
 term = Terminal()
 
-infos = ["MACOS", "MODEL", "CPU", "GPU", "THERM", "BREW", "DISK", "SHELL", "TERM"]
+infos = ["MACOS", "MODEL", "UPTIME", "CPU", "GPU", "THERM", "APPS", "BREW", "DISK", "SHELL", "TERM", "SCREENRES"]
+
+# We need to know the longest type of info, so we can right align correctly
+LONGEST_INFO=0
+for x in infos:
+    if len(x) >= LONGEST_INFO:
+        LONGEST_INFO = len(x)
+
 
 tempfile = tempfile.NamedTemporaryFile(mode = 'w')
 readfile = open(tempfile.name)
@@ -52,7 +59,7 @@ for i in infos:
     #print("about to do " + i + "on row " + str(row))
     system(info_path + " " + i + " >> " + tempfile.name)
     with term.location(XText,y=row):
-        print(term.bold_underline(i.rjust(5)) + ": " + term.green + readfile.readline() + term.normal)
+        print(term.bold_underline(i.rjust(LONGEST_INFO)) + ": " + term.green + readfile.readline() + term.normal)
     row = row + 1
 #pint(tempfile.name)
 #system("cat " + tempfile.name)

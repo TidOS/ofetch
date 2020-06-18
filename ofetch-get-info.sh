@@ -55,7 +55,17 @@ BREW)
     #package count from brew
     brew list | wc -l | awk {'printf("%s packages", $1)'}
     ;;
-    
+APPS)
+    #list of macos-handled apps
+    ls -l ~/Applications /Applications| grep ".app" | wc -l | awk {'printf("%s packages", $1)'}
+    ;;
+UPTIME)
+    #system uptime
+    system_profiler SPSoftwareDataType | grep -i Time | cut -d ':' -f 2,3 | sed 's/^ *//g'
+    ;;
+SCREENRES | RES | SCREEN)
+    osascript -e 'tell application "Finder" to get bounds of window of desktop' | cut -d ',' -f 3,4 | sed 's/,//g' | awk '{printf("%sx%s\n",$1,$2)}'
+    ;;
 *)
     echo DUMMY
     ;;
