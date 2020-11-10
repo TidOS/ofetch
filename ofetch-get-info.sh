@@ -53,7 +53,7 @@ TERM)
     
 BREW)
     #package count from brew
-    brew list | wc -l | awk {'printf("%s packages", $1)'}
+    brew list --formula | wc -l | awk {'printf("%s packages", $1)'}
     ;;
 APPS)
     #list of macos-handled apps
